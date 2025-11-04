@@ -1,794 +1,833 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> 11-XI Beige | -Algerie</title>
-  <meta name="description" content="Découvrez la chaussure Cosmos 11-XI Beige : confort amorti, semelle antidérapante et design premium. Commandez maintenant et profitez d'une livraison rapide 24-72h." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <title>Produit – Commander</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root {
-      --beige: #d9c8a2;
-      --beige-dark: #b99f6b;
-      --dark: #1f1f1f;
-      --light: #f8f5ef;
-      --accent: #3b4f52;
-      --success: #2c7a7b;
-      --danger: #c53030;
-      --shadow: 0 15px 40px rgba(31, 31, 31, 0.08);
-      --transition: all 0.3s ease;
-      font-size: 16px;
+    :root{
+      --marron: #8B4513;
+      --marron-light: #A0522D;
+      --white: #ffffff;
+      --black: #0F0F0F;
+      --grey: #f4f4f8;
+      --soft-cream: #fff7f0;
+      --accent: #2A9D8F;
+      --accent-light: #D8F3DC;
+      --warning: #D62828;
+      --warning-dark: #9D1C1C;
+      --radius: 14px;
+      --shadow: 0 18px 45px rgba(0,0,0,.08);
     }
-    * {
-      box-sizing: border-box;
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+    body{
+      background:var(--grey);
+      color:var(--black);
+      line-height:1.6;
+      padding-bottom:6rem;
     }
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;color:inherit;}
+    h1,h2,h3,h4{font-weight:700;color:#1b1b1b;}
+    /* --- NAV --- */
+    nav{padding:1.5rem 0;text-align:center;}
+    nav img.logo{height:48px;margin:auto;}
+    /* --- PHOTOS DEFILEMENT --- */
+    .slider-container{
+      position:relative;
+      width:100%;
+      max-width:650px;
+      margin:auto;
+      overflow:hidden;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
     }
-    a {
-      color: inherit;
-      text-decoration: none;
+    .slider{display:flex;transition:transform .4s ease;}
+    .slider img{width:100%;flex:0 0 100%;height:420px;object-fit:cover;}
+    .dots{
+      position:absolute;
+      bottom:14px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      gap:8px;
+      background:rgba(255,255,255,.6);
+      padding:.4rem .8rem;
+      border-radius:999px;
+      backdrop-filter:blur(6px);
     }
-    img {
-      max-width: 100%;
-      display: block;
-      border-radius: 12px;
+    .dots span{
+      width:10px;height:10px;border-radius:50%;
+      background:rgba(0,0,0,.25);cursor:pointer;transition:.3s;
     }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: rgba(248, 245, 239, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(31, 31, 31, 0.05);
+    .dots span.active{background:var(--marron);}
+    /* --- DETAILS --- */
+    .details{
+      padding:2rem 1rem 1rem;
+      max-width:650px;
+      margin:2rem auto;
+      background:var(--white);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
     }
-    nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .details h1{font-size:2rem;margin-bottom:.4rem;}
+    .stars{color:#FFC107;margin-bottom:.3rem;font-size:1rem;display:flex;align-items:center;gap:.4rem;}
+    .stars span{color:#4f4f4f;font-size:.95rem;}
+    .price{font-size:1.8rem;font-weight:700;color:var(--marron);margin:.7rem 0;}
+    .desc{color:#555;margin-bottom:1.5rem;}
+    .label{font-weight:600;margin:1.4rem 0 .6rem;text-transform:uppercase;font-size:.78rem;letter-spacing:.08em;color:#555;}
+    /* --- GUIDE POINTURES --- */
+    .size-guide-card{
+      background:var(--soft-cream);
+      border-radius:var(--radius);
+      padding:1rem 1.2rem;
+      border:1px solid rgba(139,69,19,.15);
     }
-    .logo {
-      font-weight: 700;
-      letter-spacing: 1px;
-      font-size: 1.1rem;
+    .size-guide-card h3{
+      font-size:1.2rem;
+      margin-bottom:.2rem;
+      display:flex;
+      align-items:center;
+      gap:.6rem;
     }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      font-weight: 500;
+    .size-guide-card h3::before{
+      content:"📏";
+      font-size:1.3rem;
     }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.85rem 1.8rem;
-      border-radius: 999px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: var(--transition);
-      border: none;
-      cursor: pointer;
+    .size-guide-card p{
+      font-size:.9rem;
+      color:#6a6a6a;
+      margin-bottom:.8rem;
     }
-    .btn-primary {
-      background: var(--dark);
-      color: white;
+    .guide-table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:.9rem;
+      margin-bottom:.6rem;
     }
-    .btn-primary:hover {
-      background: var(--accent);
+    .guide-table thead{background:rgba(255,255,255,.55);}
+    .guide-table th,
+    .guide-table td{
+      padding:.55rem .6rem;
+      text-align:center;
+      border:1px solid rgba(139,69,19,.15);
     }
-    .btn-secondary {
-      background: var(--beige);
-      color: var(--dark);
+    .guide-table tbody tr:nth-child(even){
+      background:rgba(255,255,255,.7);
     }
-    .btn-secondary:hover {
-      background: var(--beige-dark);
-      color: white;
+    .size-guide-card small{
+      display:block;
+      color:#7c7c7c;
+      font-size:.85rem;
     }
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
+    /* --- SELECTEUR POINTURES --- */
+    .size-picker{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(70px,1fr));
+      gap:.6rem;
     }
-    .hero {
-      display: grid;
-      gap: 3rem;
-      align-items: center;
-      margin-bottom: 5rem;
+    .size-picker input[type=radio]{display:none;}
+    .size-picker label{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:.7rem .4rem;
+      border:1.5px solid rgba(139,69,19,.25);
+      border-radius:12px;
+      background:#fff;
+      font-weight:600;
+      color:#333;
+      cursor:pointer;
+      transition:.25s;
+      box-shadow:0 10px 18px rgba(0,0,0,.05);
+      font-size:1rem;
     }
-    .hero-content h1 {
-      font-size: clamp(2.5rem, 4vw, 3.8rem);
-      margin-bottom: 1rem;
-      line-height: 1.1;
+    .size-picker label span{
+      font-size:.7rem;
+      font-weight:500;
+      color:#777;
+      margin-top:.2rem;
     }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: white;
-      border-radius: 999px;
-      padding: 0.5rem 1.2rem;
-      box-shadow: var(--shadow);
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 1rem;
+    .size-picker input[type=radio]:checked+label{
+      border-color:var(--accent);
+      background:var(--accent-light);
+      color:#135f51;
+      box-shadow:0 14px 24px rgba(42,157,143,.25);
     }
-    .hero-content p {
-      font-size: 1.1rem;
-      color: rgba(31, 31, 31, 0.75);
-      margin-bottom: 2rem;
-      max-width: 540px;
+    .size-picker label:hover{
+      transform:translateY(-2px);
+      border-color:var(--accent);
     }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+    /* --- QUANTITE --- */
+    .qty-wrapper{
+      display:flex;
+      align-items:center;
+      gap:.4rem;
+      width:fit-content;
+      background:#fff;
+      border-radius:999px;
+      padding:.25rem;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
     }
-    .hero-image {
-      position: relative;
-      background: radial-gradient(circle at 30% 20%, rgba(217, 200, 162, 0.45), transparent 65%), radial-gradient(circle at 80% 30%, rgba(31, 31, 31, 0.1), transparent 70%);
-      padding: 2rem;
-      border-radius: 24px;
-      box-shadow: var(--shadow);
+    .qty-btn{
+      width:40px;height:40px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      border-radius:50%;
+      font-size:1.2rem;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:.2s ease;
     }
-    .hero-image .price-tag {
-      position: absolute;
-      bottom: 18px;
-      right: 18px;
-      background: white;
-      padding: 0.6rem 1.3rem;
-      border-radius: 12px;
-      font-weight: 600;
-      color: var(--accent);
-      box-shadow: var(--shadow);
+    .qty-btn:hover{background:#1e7f72;}
+    #qty{
+      width:70px;
+      border:none;
+      text-align:center;
+      font-weight:600;
+      font-size:1.1rem;
+      background:transparent;
+      outline:none;
     }
-    section {
-      margin-bottom: 5rem;
+    #qty::-webkit-outer-spin-button,
+    #qty::-webkit-inner-spin-button{
+      -webkit-appearance:none;margin:0;
     }
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
+    /* --- FORMULAIRE COMMANDE --- */
+    .order-form{
+      background:linear-gradient(140deg,rgba(255,255,255,1) 30%, rgba(255,238,220,0.9));
+      padding:1.5rem;
+      border-radius:var(--radius);
+      margin-top:1.8rem;
+      border:1px solid rgba(0,0,0,.05);
+      box-shadow:var(--shadow);
     }
-    .section-title h2 {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      margin: 0;
+    .mini-card{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      margin-bottom:1.4rem;
+      padding-bottom:1rem;
+      border-bottom:1px dashed rgba(0,0,0,.1);
     }
-    .section-title span {
-      width: 60px;
-      height: 4px;
-      background: var(--beige);
-      border-radius: 2px;
+    .mini-card img{
+      width:70px;height:70px;object-fit:cover;
+      border-radius:12px;
+      box-shadow:0 8px 16px rgba(0,0,0,.12);
     }
-    .grid-2 {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    .mini-card .price{margin:0;}
+    .livraison-choices{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:.8rem;
+      margin-bottom:1.2rem;
     }
-    .highlight {
-      background: white;
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
+    .livraison-choices input[type=radio]{display:none;}
+    .livraison-choices label{
+      background:#fff;
+      border:1.5px solid rgba(0,0,0,.08);
+      border-radius:var(--radius);
+      padding:1rem .7rem;
+      text-align:center;
+      cursor:pointer;
+      font-weight:600;
+      transition:.25s;
+      box-shadow:0 10px 18px rgba(0,0,0,.05);
+      display:flex;
+      flex-direction:column;
+      gap:.2rem;
     }
-    .icon-bullet {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
+    .livraison-choices label strong{color:var(--marron);}
+    .livraison-choices input[type=radio]:checked+label{
+      background:var(--accent);
+      color:#fff;
+      border-color:var(--accent);
+      box-shadow:0 16px 32px rgba(42,157,143,.35);
     }
-    .icon-bullet .icon {
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      background: rgba(217, 200, 162, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
+    .livraison-choices input[type=radio]:checked+label strong{color:#fff;}
+    input[type=text], select, textarea{
+      width:100%;
+      padding:.85rem 1rem;
+      border:1.5px solid rgba(0,0,0,.08);
+      border-radius:12px;
+      margin-bottom:.9rem;
+      font-size:1rem;
+      transition:.2s;
+      background:#fff;
+      box-shadow:0 8px 18px rgba(0,0,0,.05);
     }
-    .icon-bullet h3 {
-      margin: 0 0 0.5rem;
-    }
-    .spec-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    .spec-table th,
-    .spec-table td {
-      text-align: left;
-      padding: 1.2rem 1.5rem;
-      border-bottom: 1px solid rgba(31, 31, 31, 0.05);
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem;
-    }
-    .product-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      position: relative;
-    }
-    .product-card h3 {
-      margin-top: 0;
-    }
-    .options {
-      display: grid;
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-    .chip-group {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-    .chip {
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid rgba(31, 31, 31, 0.15);
-      cursor: pointer;
-      transition: var(--transition);
-      font-weight: 500;
-    }
-    .chip.active {
-      background: var(--dark);
-      color: white;
-      border-color: var(--dark);
-    }
-    .qty-control {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .qty-control button {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(31, 31, 31, 0.08);
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: var(--transition);
-    }
-    .qty-control button:hover {
-      background: var(--dark);
-      color: white;
-    }
-    .testimonials {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    }
-    .testimonial-card {
-      background: white;
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      position: relative;
-    }
-    .testimonial-card::before {
-      content: "“";
-      position: absolute;
-      top: -20px;
-      left: 20px;
-      font-size: 4rem;
-      color: rgba(217, 200, 162, 0.7);
-    }
-    .testimonial-card .name {
-      font-weight: 600;
-      margin-top: 1.5rem;
-    }
-    .logistics {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .logistics-card {
-      background: white;
-      border-radius: 18px;
-      padding: 1.8rem;
-      box-shadow: var(--shadow);
-    }
-    .contact-section {
-      background: linear-gradient(135deg, rgba(217, 200, 162, 0.35), rgba(59, 79, 82, 0.08));
-      border-radius: 24px;
-      padding: 3rem;
-      display: grid;
-      gap: 2.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      align-items: center;
-    }
-    .contact-info p {
-      margin: 0.3rem 0;
-    }
-    form {
-      display: grid;
-      gap: 1rem;
-    }
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      border-radius: 12px;
-      border: 1px solid rgba(31, 31, 31, 0.15);
-      font-family: inherit;
-      font-size: 1rem;
-      background: white;
-      transition: var(--transition);
-    }
-    input:focus,
+    input[type=text]:focus,
     select:focus,
-    textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(59, 79, 82, 0.12);
+    textarea:focus{
+      border-color:var(--accent);
+      outline:none;
+      box-shadow:0 14px 28px rgba(42,157,143,.25);
     }
-    footer {
-      background: var(--dark);
-      color: white;
-      padding: 3rem 1.5rem;
+    textarea{resize:vertical;min-height:110px;}
+    .btn{
+      display:inline-block;
+      color:var(--white);
+      padding:1rem;
+      border:none;
+      border-radius:14px;
+      font-weight:700;
+      width:100%;
+      cursor:pointer;
+      transition:.25s;
+      text-transform:uppercase;
+      letter-spacing:.06em;
     }
-    .footer-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    .btn-warning{
+      background:var(--warning);
+      box-shadow:0 18px 32px rgba(214,40,40,.35);
     }
-    .footer-grid h4 {
-      margin-top: 0;
+    .btn-warning:hover{
+      background:var(--warning-dark);
+      transform:translateY(-2px);
+      box-shadow:0 24px 40px rgba(214,40,40,.45);
     }
-    .footer-bottom {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.65);
+    /* --- INFOS SUPP --- */
+    .infos{
+      margin:2.5rem auto;
+      display:flex;
+      gap:1rem;
+      justify-content:center;
+      flex-wrap:wrap;
+      max-width:650px;
     }
-    .cart-toast {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background: var(--accent);
-      color: white;
-      padding: 1rem 1.2rem;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: var(--transition);
-      z-index: 9999;
+    .info-box{
+      background:var(--white);
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:var(--radius);
+      padding:1rem 1.4rem;
+      min-width:180px;
+      text-align:center;
+      cursor:pointer;
+      transition:.25s;
+      box-shadow:0 10px 22px rgba(0,0,0,.08);
+      font-weight:600;
     }
-    .cart-toast.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .info-box:hover{transform:translateY(-3px);}
+    .info-box.active{
+      background:var(--accent);
+      color:#fff;
+      border-color:var(--accent);
+      box-shadow:0 18px 36px rgba(42,157,143,.35);
     }
-    @media (min-width: 960px) {
-      .hero {
-        grid-template-columns: 1.15fr 1fr;
-      }
+    /* --- BANDEAU DEFILANT --- */
+    .bandeau{
+      background:var(--marron);
+      color:#fff;
+      overflow:hidden;
+      white-space:nowrap;
+      margin:2rem 0;
+      padding:.7rem 0;
+      font-weight:600;
+      letter-spacing:.04em;
+      box-shadow:0 14px 22px rgba(0,0,0,.25);
     }
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      main {
-        padding-top: 3rem;
-      }
-      .hero {
-        margin-top: 2rem;
-      }
+    .bandeau span{
+      display:inline-block;
+      padding-left:100%;
+      animation:defile 12s linear infinite;
+    }
+    @keyframes defile{
+      0%{transform:translateX(0);}
+      100%{transform:translateX(-100%);}
+    }
+    /* --- 3 CARACTERISTIQUES --- */
+    .caracteristiques{
+      display:flex;
+      gap:1.2rem;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin:2rem auto 3rem;
+      max-width:900px;
+      padding:0 1rem;
+    }
+    .carac{
+      flex:1 1 260px;
+      text-align:center;
+      background:var(--white);
+      border-radius:var(--radius);
+      padding:1.4rem 1rem;
+      box-shadow:0 12px 28px rgba(0,0,0,.08);
+    }
+    .carac img{
+      height:130px;
+      margin:auto;
+      border-radius:12px;
+      object-fit:cover;
+      margin-bottom:1rem;
+    }
+    .carac h4{font-size:1.1rem;}
+    /* --- AVIS CLIENTS --- */
+    .avis-section{
+      max-width:900px;
+      margin:3rem auto;
+      padding:0 1rem;
+    }
+    .avis-section-header{
+      text-align:center;
+      margin-bottom:1.6rem;
+    }
+    .avis-section-header h2{
+      font-size:1.9rem;
+      margin-bottom:.3rem;
+    }
+    .avis-section-header h2 span{
+      display:inline-block;
+      padding:.15rem .8rem;
+      border-radius:999px;
+      background:rgba(214,40,40,.12);
+      color:var(--warning);
+      font-size:.95rem;
+      margin-bottom:.6rem;
+    }
+    .avis-section-header p{
+      color:#666;
+      font-size:.95rem;
+    }
+    .avis-wrapper{
+      position:relative;
+      max-width:650px;
+      margin:auto;
+      overflow:hidden;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      background:linear-gradient(140deg, rgba(255,255,255,1), rgba(216,243,220,.6));
+    }
+    .avis-container{display:flex;transition:transform .4s ease;}
+    .avis{
+      padding:2rem 1.8rem;
+      min-width:100%;
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+    }
+    .avis .quote{
+      font-size:1.05rem;
+      color:#333;
+      line-height:1.7;
+      font-style:italic;
+    }
+    .avis small{
+      font-weight:600;
+      color:#2b2b2b;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:#fff;
+      color:#333;
+      border:none;
+      padding:.55rem .7rem;
+      border-radius:50%;
+      cursor:pointer;
+      box-shadow:0 12px 24px rgba(0,0,0,.18);
+      transition:.2s;
+    }
+    .arrow:hover{background:var(--accent);color:#fff;}
+    .arrow.left{left:16px;}
+    .arrow.right{right:16px;}
+    /* --- NOUS CONTACTER --- */
+    .contact{
+      padding:3rem 1rem;
+      text-align:center;
+      background:var(--white);
+      margin-top:3.5rem;
+      box-shadow:var(--shadow);
+    }
+    .contact a{
+      background:var(--accent);
+      color:#fff;
+      padding:.9rem 1.6rem;
+      border-radius:999px;
+      font-weight:600;
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      transition:.25s;
+    }
+    .contact a:hover{
+      background:#1e7f72;
+      transform:translateY(-2px);
+      box-shadow:0 16px 30px rgba(30,127,114,.35);
+    }
+    /* --- FOOTER --- */
+    footer{
+      background:#111;
+      color:#eee;
+      text-align:center;
+      padding:2.2rem 1rem;
+      font-size:.85rem;
+      margin-top:3rem;
+    }
+    footer a{color:#fff;opacity:.85;}
+    footer a:hover{opacity:1;}
+    /* --- BOUTON FIXE --- */
+    .fixed-btn{
+      position:fixed;
+      bottom:90px;
+      left:50%;
+      transform:translateX(-50%);
+      background:var(--warning);
+      color:#fff;
+      padding:1rem 2.2rem;
+      border-radius:36px;
+      font-weight:700;
+      box-shadow:0 20px 32px rgba(214,40,40,.4);
+      letter-spacing:.05em;
+      transition:.25s;
+      z-index:20;
+    }
+    .fixed-btn:hover{
+      background:var(--warning-dark);
+      transform:translate(-50%,-2px);
+      box-shadow:0 28px 44px rgba(214,40,40,.45);
+    }
+    /* --- REMONTER --- */
+    .go-top{
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      background:var(--accent);
+      color:#fff;
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow:0 18px 32px rgba(42,157,143,.35);
+      transition:.25s;
+    }
+    .go-top:hover{transform:translateY(-2px);}
+    /* --- RESPONSIVE --- */
+    @media(max-width:600px){
+      .slider img{height:320px;}
+      .details{margin:1.5rem 1rem;}
+      .mini-card{flex-direction:column;text-align:center;}
+      .livraison-choices{grid-template-columns:1fr;}
+      .fixed-btn{width:calc(100% - 2.5rem);}
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">Algerie</div>
-      <div class="nav-links">
-        <a href="#accueil">Accueil</a>
-        <a href="#collections">Collections</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a class="btn btn-secondary" href="#achat">Commander</a>
-    </nav>
-  </header>
 
-  <main>
-    <section id="accueil" class="hero">
-      <div class="hero-content">
-        <div class="badge">Collection 2025</div>
-        <h1> 11-XI Beige<br />Élégance intemporelle, confort sans compromis.</h1>
-        <p>Une chaussure pensée pour les esprits audacieux. Grâce à son amorti longue durée et sa semelle antidérapante haute performance, la Cosmos 11-XI Beige accompagne chaque pas avec assurance, du bureau aux sorties nocturnes.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#achat">Ajouter au panier</a>
-          <a class="btn btn-secondary" href="#specifications">Voir les détails</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="https://via.placeholder.com/640x480.png?text=Cosmos+11-XI+Beige" alt="Chaussure Cosmos 11-XI Beige - Vue principale" />
-        <div class="price-tag">Prix : 4 900 DA</div>
-      </div>
-    </section>
+<!-- ===== NAV LOGO CENTRE ===== -->
+<nav><img src="img/logo-cosmos.png" alt="ton logo" class="logo"></nav>
 
-    <section id="benefices">
-      <div class="section-title">
-        <span></span>
-        <h2>Pourquoi choisir la 11-XI Beige ?</h2>
-      </div>
-      <div class="grid-2">
-        <div class="highlight">
-          <div class="icon-bullet">
-            <div class="icon">🌀</div>
-            <div>
-              <h3>Confort amorti longue durée</h3>
-              <p>Grâce à sa mousse haute densité et son renfort plantaire, la 11-XI absorbe les chocs et maintient votre pied en toute légèreté toute la journée.</p>
-            </div>
-          </div>
-          <div class="icon-bullet">
-            <div class="icon">🦶🏻</div>
-            <div>
-              <h3>Semelle antidérapante XL-Grip</h3>
-              <p>Sa semelle en caoutchouc nervuré assure une accroche optimale sur surfaces sèches ou humides, pour des pas sûrs en toutes circonstances.</p>
-            </div>
-          </div>
-        </div>
-        <div class="highlight">
-          <div class="icon-bullet">
-            <div class="icon">🎨</div>
-            <div>
-              <h3>Design beige premium</h3>
-              <p>Une teinte beige chaleureuse, prête à s’harmoniser avec toutes vos tenues. La finition micro-perforée ajoute un style aérien et respirant.</p>
-            </div>
-          </div>
-          <div class="icon-bullet">
-            <div class="icon">✅</div>
-            <div>
-              <h3>Garantie satisfaction</h3>
-              <p>Profitez d’un service client réactif, du paiement à la livraison et d’un retour simplifié sous 14 jours si la paire ne vous convainc pas.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- ===== SLIDER PHOTOS ===== -->
+<div class="slider-container">
+  <div class="slider" id="slider">
+    <img src="img/beige-1.jpg" alt="1">
+    <img src="img/beige-2.jpg" alt="2">
+    <img src="img/beige-3.jpg" alt="3">
+  </div>
+  <div class="dots">
+    <span class="active" onclick="goSlide(0)"></span>
+    <span onclick="goSlide(1)"></span>
+    <span onclick="goSlide(2)"></span>
+  </div>
+</div>
 
-    <section id="specifications">
-      <div class="section-title">
-        <span></span>
-        <h2>Caractéristiques techniques</h2>
-      </div>
-      <table class="spec-table">
-        <tbody>
-          <tr>
-            <th>Matériaux</th>
-            <td>Tige en cuir synthétique premium, doublure respirante en mesh, semelle extérieure caoutchouc XL-Grip</td>
-          </tr>
-          <tr>
-            <th>Poids</th>
-            <td>320 g (taille 42)</td>
-          </tr>
-          <tr>
-            <th>Disponible du 39 au 45</th>
-            <td>39, 40, 41, 42, 43, 44, 45</td>
-          </tr>
-          <tr>
-            <th>Coloris</th>
-            <td>Beige sable (édition limitée), Nuances accent bronzées</td>
-          </tr>
-          <tr>
-            <th>Semelle intérieure</th>
-            <td>Memory Foam à mémoire de forme, traitement anti-odeurs</td>
-          </tr>
-          <tr>
-            <th>Hauteur de semelle</th>
-            <td>3.2 cm au talon, 2.4 cm à l’avant-pied</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+<!-- ===== DETAILS PRODUIT ===== -->
+<div class="details">
+  <h1>Ton produit</h1>
+  <div class="stars">
+    <div>
+      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+    </div>
+    <span>128 clients satisfaits</span>
+  </div>
+  <div class="price">4 900 DA</div>
+  <p class="desc">Confort longue durée, semelle antidérapante, cuir local. L’essayer, c’est l’adopter.</p>
 
-    <section id="galerie">
-      <div class="section-title">
-        <span></span>
-        <h2>Galerie produit</h2>
-      </div>
-      <div class="gallery-grid">
-        <img src="https://via.placeholder.com/360x300.png?text=Vue+profil" alt="Cosmos 11-XI Beige - Vue profil" />
-        <img src="https://via.placeholder.com/360x300.png?text=Vue+dessus" alt="Cosmos 11-XI Beige - Vue dessus" />
-        <img src="https://via.placeholder.com/360x300.png?text=Vue+semelle" alt="Cosmos 11-XI Beige - Semelle antidérapante" />
-        <img src="https://via.placeholder.com/360x300.png?text=Vue+talon" alt="Cosmos 11-XI Beige - Talon renforcé" />
-        <img src="https://via.placeholder.com/360x300.png?text=D%C3%A9tail+mati%C3%A8re" alt="Cosmos 11-XI Beige - Détail matière" />
-        <img src="https://via.placeholder.com/360x300.png?text=Vue+port%C3%A9e" alt="Cosmos 11-XI Beige - Vue portée" />
-      </div>
-    </section>
+  <div class="size-guide-card">
+    <h3>Guide des pointures Cosmos</h3>
+    <p>Mesure ton pied du talon jusqu’à l’orteil le plus long, puis choisis la pointure qui correspond.</p>
+    <table class="guide-table">
+      <thead>
+        <tr><th>Pointure EU</th><th>Longueur du pied (cm)</th><th>US Homme</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>39</td><td>24.5 – 25.0</td><td>6.5</td></tr>
+        <tr><td>40</td><td>25.1 – 25.6</td><td>7.5</td></tr>
+        <tr><td>41</td><td>25.7 – 26.2</td><td>8</td></tr>
+        <tr><td>42</td><td>26.3 – 26.8</td><td>9</td></tr>
+        <tr><td>43</td><td>26.9 – 27.4</td><td>9.5</td></tr>
+        <tr><td>44</td><td>27.5 – 28.0</td><td>10</td></tr>
+        <tr><td>45</td><td>28.1 – 28.6</td><td>11</td></tr>
+      </tbody>
+    </table>
+    <small>Astuce : si tu es entre deux tailles, choisis la plus grande pour plus de confort.</small>
+  </div>
 
-    <section id="achat">
-      <div class="section-title">
-        <span></span>
-        <h2>Prêt à passer à l’action ?</h2>
-      </div>
-      <div class="product-card">
-        <h3> 11-XI Beige</h3>
-        <p>Commandez votre paire dès maintenant et profitez d’une livraison rapide entre 24 et 72 heures partout en Algérie.</p>
-        <div class="options">
-          <div>
-            <h4>Taille</h4>
-            <div class="chip-group" id="sizeOptions">
-              <button class="chip" data-size="39">39</button>
-              <button class="chip" data-size="40">40</button>
-              <button class="chip" data-size="41">41</button>
-              <button class="chip" data-size="42">42</button>
-              <button class="chip" data-size="43">43</button>
-              <button class="chip" data-size="44">44</button>
-              <button class="chip" data-size="45">45</button>
-            </div>
-          </div>
-          <div>
-            <h4>Couleur</h4>
-            <div class="chip-group" id="colorOptions">
-              <button class="chip active" data-color="Beige sable">Beige sable</button>
-            </div>
-          </div>
-          <div>
-            <h4>Quantité</h4>
-            <div class="qty-control">
-              <button type="button" id="qtyMinus">−</button>
-              <span id="qtyValue">1</span>
-              <button type="button" id="qtyPlus">+</button>
-            </div>
-          </div>
-        </div>
-        <div class="hero-actions">
-          <button class="btn btn-primary" id="addToCart">Ajouter au panier</button>
-          <button class="btn btn-secondary" id="viewCart">Voir le panier</button>
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: rgba(31, 31, 31, 0.65);">
-          Paiement à la livraison | Retour possible sous 14 jours | Support client 7j/7
-        </p>
-      </div>
-    </section>
+  <div class="label">Choisis ta pointure</div>
+  <div class="size-picker" role="radiogroup" aria-label="Sélection de pointure">
+    <input type="radio" id="size39" name="size" value="39">
+    <label for="size39">39<span>≈ 24.7 cm</span></label>
+    <input type="radio" id="size40" name="size" value="40">
+    <label for="size40">40<span>≈ 25.3 cm</span></label>
+    <input type="radio" id="size41" name="size" value="41">
+    <label for="size41">41<span>≈ 25.9 cm</span></label>
+    <input type="radio" id="size42" name="size" value="42">
+    <label for="size42">42<span>≈ 26.5 cm</span></label>
+    <input type="radio" id="size43" name="size" value="43">
+    <label for="size43">43<span>≈ 27.1 cm</span></label>
+    <input type="radio" id="size44" name="size" value="44">
+    <label for="size44">44<span>≈ 27.7 cm</span></label>
+  </div>
 
-    <section id="temoignages">
-      <div class="section-title">
-        <span></span>
-        <h2>Ils en parlent mieux que nous</h2>
-      </div>
-      <div class="testimonials">
-        <div class="testimonial-card">
-          <p>« Ultra confortables, je les porte du matin au soir sans aucune gêne. Le coloris beige est juste splendide ! »</p>
-          <div class="name">Nadia, 32 ans</div>
-          <div class="rating">★★★★★</div>
-        </div>
-        <div class="testimonial-card">
-          <p>« Bonne accroche même sur sol humide. Je recommande pour le quotidien et les balades du week-end. »</p>
-          <div class="name">Samir, 27 ans</div>
-          <div class="rating">★★★★☆</div>
-        </div>
-        <div class="testimonial-card">
-          <p>« Livraison rapide, service client impeccable. J’ai commandé pour mon frère aussi, il en est ravi ! »</p>
-          <div class="name">Karim, 41 ans</div>
-          <div class="rating">★★★★★</div>
-        </div>
-      </div>
-    </section>
+  <div class="label">Quantité</div>
+  <div class="qty-wrapper">
+    <button type="button" class="qty-btn" data-step="-1" aria-label="Diminuer la quantité">−</button>
+    <input type="number" id="qty" min="1" max="10" value="1" aria-label="Quantité">
+    <button type="button" class="qty-btn" data-step="1" aria-label="Augmenter la quantité">+</button>
+  </div>
 
-    <section id="livraison">
-      <div class="section-title">
-        <span></span>
-        <h2>Livraison, paiement & retours</h2>
-      </div>
-      <div class="logistics">
-        <div class="logistics-card">
-          <h3>Livraison express 24-72h</h3>
-          <p>Nous expédions vos commandes sous 24 heures avec un délai de livraison estimé entre 1 et 3 jours selon votre wilaya.</p>
-        </div>
-        <div class="logistics-card">
-          <h3>Paiement à la livraison</h3>
-          <p>Réglez en toute confiance à réception de votre colis. Aucune avance nécessaire.</p>
-        </div>
-        <div class="logistics-card">
-          <h3>Service client & retours</h3>
-          <p>Notre équipe répond à vos questions 7j/7. Retour gratuit sous 14 jours si la pointure ou le modèle ne vous convient pas.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-      <div class="contact-info">
-        <h3>Besoin d’aide ?</h3>
-        <p>Notre équipe est à votre écoute.</p>
-        <p><strong>Téléphone :</strong> +213 21 123 123</p>
-        <p><strong>Email :</strong> support@-algerie.dz</p>
-        <p><strong>Horaires :</strong> Lundi - Dimanche, 9h - 21h</p>
-        <p><strong>Adresse :</strong> 12 Rue des Frères Mahmoud, Alger</p>
-      </div>
+  <!-- --- FORMULAIRE COMMANDE --- -->
+  <form class="order-form" onsubmit="return confirmOrder();">
+    <div class="mini-card">
+      <img src="img/beige-1.jpg" alt="Produit sélectionné">
       <div>
-        <h3>Formulaire de contact</h3>
-        <form id="contactForm">
-          <input type="text" name="name" placeholder="Votre nom" required />
-          <input type="email" name="email" placeholder="Votre adresse email" required />
-          <select name="topic" required>
-            <option value="">Sujet de votre message</option>
-            <option value="infos">Informations produit</option>
-            <option value="suivi">Suivi de commande</option>
-            <option value="sav">Service après-vente</option>
-          </select>
-          <textarea name="message" rows="4" placeholder="Votre message..." required></textarea>
-          <button class="btn btn-primary" type="submit">Envoyer</button>
-        </form>
-        <small style="display: block; margin-top: 0.8rem; color: rgba(31, 31, 31, 0.6);">
-          En soumettant ce formulaire, vous acceptez notre politique de confidentialité.
-        </small>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <h4>Algerie</h4>
-        <p>Marque algérienne dédiée au style et au confort depuis 2012.</p>
-      </div>
-      <div>
-        <h4>Liens utiles</h4>
-        <p><a href="#accueil">Accueil</a></p>
-        <p><a href="#specifications">Caractéristiques</a></p>
-        <p><a href="#galerie">Galerie</a></p>
-        <p><a href="#achat">Commander</a></p>
-      </div>
-      <div>
-        <h4>Support</h4>
-        <p><a href="#contact">Nous contacter</a></p>
-        <p><a href="#livraison">Livraison & retours</a></p>
-        <p><a href="#">Mentions légales</a></p>
-        <p><a href="#">Politique de confidentialité</a></p>
-      </div>
-      <div>
-        <h4>Suivi & analytics</h4>
-        <p>Intégration d’outils analytics et pixel marketing pour optimiser vos campagnes.</p>
-        <p><strong>Taux de conversion cible :</strong> à définir selon l’historique.</p>
+        <div style="font-weight:600;">Cosmos 11-XI Beige</div>
+        <div class="price" id="totalPrice">5 300 DA</div>
+        <small style="color:#666;">Total = Produit + livraison</small>
       </div>
     </div>
-    <div class="footer-bottom">
-      © 2025 Cosmos-Algerie. Tous droits réservés.
+
+    <div class="label">Mode de livraison</div>
+    <div class="livraison-choices">
+      <input type="radio" name="liv" id="stopdesk" value="400" checked>
+      <label for="stopdesk">Stop desk <strong>400 DA</strong></label>
+      <input type="radio" name="liv" id="domicile" value="600">
+      <label for="domicile">À domicile <strong>600 DA</strong></label>
     </div>
-  </footer>
 
-  <div class="cart-toast" id="cartToast">Produit ajouté au panier ✅</div>
+    <input type="text" placeholder="Nom" required>
+    <input type="text" placeholder="Prénom" required>
+    <input type="text" placeholder="Téléphone" required>
 
-  <!-- Pixel de suivi remarketing (exemple) -->
-  <script>
-    // window.dataLayer = window.dataLayer || [];
-    // function gtag(){dataLayer.push(arguments);}
-    // gtag("js", new Date());
-    // gtag("config", "UA-XXXXXXXXX-X");
-  </script>
+    <select required>
+      <option value="">Choisir la wilaya</option>
+      <option>01 - Adrar</option>
+      <option>02 - Chlef</option>
+      <option>03 - Laghouat</option>
+      <option>04 - Oum El Bouaghi</option>
+      <option>05 - Batna</option>
+      <option>06 - Béjaïa</option>
+      <option>07 - Biskra</option>
+      <option>08 - Béchar</option>
+      <option>09 - Blida</option>
+      <option>10 - Bouira</option>
+      <option>11 - Tamanrasset</option>
+      <option>12 - Tébessa</option>
+      <option>13 - Tlemcen</option>
+      <option>14 - Tiaret</option>
+      <option>15 - Tizi Ouzou</option>
+      <option>16 - Alger</option>
+      <option>17 - Djelfa</option>
+      <option>18 - Jijel</option>
+      <option>19 - Sétif</option>
+      <option>20 - Saïda</option>
+      <option>21 - Skikda</option>
+      <option>22 - Sidi Bel Abbès</option>
+      <option>23 - Annaba</option>
+      <option>24 - Guelma</option>
+      <option>25 - Constantine</option>
+      <option>26 - Médéa</option>
+      <option>27 - Mostaganem</option>
+      <option>28 - M'Sila</option>
+      <option>29 - Mascara</option>
+      <option>30 - Ouargla</option>
+      <option>31 - Oran</option>
+      <option>32 - El Bayadh</option>
+      <option>33 - Illizi</option>
+      <option>34 - Bordj Bou Arréridj</option>
+      <option>35 - Boumerdès</option>
+      <option>36 - El Tarf</option>
+      <option>37 - Tindouf</option>
+      <option>38 - Tissemsilt</option>
+      <option>39 - El Oued</option>
+      <option>40 - Khenchela</option>
+      <option>41 - Souk Ahras</option>
+      <option>42 - Tipaza</option>
+      <option>43 - Mila</option>
+      <option>44 - Aïn Defla</option>
+      <option>45 - Naâma</option>
+      <option>46 - Aïn Témouchent</option>
+      <option>47 - Ghardaïa</option>
+      <option>48 - Relizane</option>
+      <option>49 - Timimoun</option>
+      <option>50 - Bordj Badji Mokhtar</option>
+      <option>51 - Ouled Djellal</option>
+      <option>52 - Béni Abbès</option>
+      <option>53 - In Salah</option>
+      <option>54 - In Guezzam</option>
+      <option>55 - Touggourt</option>
+      <option>56 - Djanet</option>
+      <option>57 - El M'Ghair</option>
+      <option>58 - El Menia</option>
+    </select>
 
-  <!-- Script panier localStorage -->
-  <script>
-    const sizeOptions = document.querySelectorAll("#sizeOptions .chip");
-    const colorOptions = document.querySelectorAll("#colorOptions .chip");
-    const qtyMinus = document.getElementById("qtyMinus");
-    const qtyPlus = document.getElementById("qtyPlus");
-    const qtyValue = document.getElementById("qtyValue");
-    const addToCartBtn = document.getElementById("addToCart");
-    const viewCartBtn = document.getElementById("viewCart");
-    const cartToast = document.getElementById("cartToast");
+    <textarea placeholder="Adresse complète" rows="2" required></textarea>
+    <button type="submit" class="btn btn-warning">Commander maintenant</button>
+  </form>
+</div>
 
-    let selectedSize = localStorage.getItem("cosmos-size") || "";
-    let selectedColor = localStorage.getItem("cosmos-color") || "Beige sable";
-    let quantity = parseInt(localStorage.getItem("cosmos-qty"), 10) || 1;
+<!-- --- INFOS SUPP --- -->
+<div class="infos">
+  <div class="info-box" data-label="Livraison" onclick="toggleInfo(this,'Livraison rapide 24-72&nbsp;h dans toutes les wilayas.')">Livraison</div>
+  <div class="info-box" data-label="Échange" onclick="toggleInfo(this,'Échange gratuit pendant 7&nbsp;jours si la pointure ne convient pas.')">Échange</div>
+  <div class="info-box" data-label="Remboursement" onclick="toggleInfo(this,'Remboursement intégral si tu n’es pas satisfait, sans discussion.')">Remboursement</div>
+</div>
 
-    function syncUI() {
-      sizeOptions.forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.size === selectedSize);
-      });
-      colorOptions.forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.color === selectedColor);
-      });
-      qtyValue.textContent = quantity;
-    }
+<!-- --- BANDEAU DEFILANT --- -->
+<div class="bandeau">
+  <span>Livraison rapide • Paiement à la livraison • Satisfait ou remboursé</span>
+</div>
 
-    sizeOptions.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        selectedSize = btn.dataset.size;
-        localStorage.setItem("cosmos-size", selectedSize);
-        syncUI();
-      });
+<!-- --- 3 CARACTERISTIQUES --- -->
+<div class="caracteristiques">
+  <div class="carac">
+    <img src="img/feat1.jpg" alt="Confort">
+    <h4>Confort longue durée</h4>
+  </div>
+  <div class="carac">
+    <img src="img/feat2.jpg" alt="Adhérence">
+    <h4>Semelle antidérapante</h4>
+  </div>
+  <div class="carac">
+    <img src="img/feat3.jpg" alt="Cuir">
+    <h4>Cuir 100 % local</h4>
+  </div>
+</div>
+
+<!-- --- AVIS CLIENTS --- -->
+<section class="avis-section" aria-labelledby="avisTitle">
+  <div class="avis-section-header">
+    <h2 id="avisTitle"><span>Nouveau</span>Ce que les clients pensent de nous</h2>
+    <p>Des retours authentiques de clientes et clients qui portent le modèle Cosmos au quotidien.</p>
+  </div>
+  <div class="avis-wrapper">
+    <div class="avis-container" id="avisContainer">
+      <div class="avis">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="quote">« Super confortables, je les porte tous les jours. La couleur beige va avec tout ! »</p>
+        <small>— Yasmine, Alger</small>
+      </div>
+      <div class="avis">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="quote">« Livraison en 48 h à Oran, pointure nickel grâce au guide. Je recommande. »</p>
+        <small>— Karim, Oran</small>
+      </div>
+      <div class="avis">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+        <p class="quote">« Bon rapport qualité/prix. Semelle antidérapante validée sur sol mouillé. »</p>
+        <small>— Samir, Tizi Ouzou</small>
+      </div>
+    </div>
+    <button class="arrow left" onclick="moveAvis(-1)" aria-label="Avis précédent"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="arrow right" onclick="moveAvis(1)" aria-label="Avis suivant"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+</section>
+
+<!-- --- NOUS CONTACTER --- -->
+<div class="contact">
+  <h3>Une question ?</h3><br>
+  <a href="https://wa.me/213550000000" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Nous contacter</a>
+</div>
+
+<!-- --- FOOTER --- -->
+<footer>
+  © 2025 Cosmos-Algérie – Tous droits réservés<br>
+  <a href="tel:+213550000000">+213 55 000 00 00</a> | <a href="mailto:hello@cosmos-algerie.dz">hello@cosmos-algerie.dz</a>
+</footer>
+
+<!-- --- BOUTON COMMANDE FIXE --- -->
+<a href="#" class="fixed-btn" onclick="document.querySelector('.order-form').scrollIntoView({behavior:'smooth'});return false;">Commander maintenant</a>
+
+<!-- --- REMONTER --- -->
+<div class="go-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-chevron-up"></i></div>
+
+<script>
+  let currentSlide=0,currentAvis=0;
+  const totalSlides=document.querySelectorAll('.slider img').length;
+  const totalAvis=document.querySelectorAll('.avis').length;
+
+  function goSlide(n){
+    currentSlide=n;
+    document.getElementById('slider').style.transform=`translateX(-${n*100}%)`;
+    document.querySelectorAll('.dots span').forEach((d,i)=>d.classList.toggle('active',i===n));
+  }
+
+  function toggleInfo(el,txt){
+    document.querySelectorAll('.info-box').forEach(box=>{
+      box.classList.remove('active');
+      box.textContent=box.dataset.label;
     });
+    el.classList.add('active');
+    el.innerHTML=`<strong>${txt}</strong>`;
+    setTimeout(()=>{
+      el.classList.remove('active');
+      el.textContent=el.dataset.label;
+    },2800);
+  }
 
-    colorOptions.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        selectedColor = btn.dataset.color;
-        localStorage.setItem("cosmos-color", selectedColor);
-        syncUI();
-      });
+  function moveAvis(dir){
+    currentAvis=(currentAvis+dir+totalAvis)%totalAvis;
+    document.getElementById('avisContainer').style.transform=`translateX(-${currentAvis*100}%)`;
+  }
+
+  function confirmOrder(){
+    alert('Commande enregistrée (démonstration).');
+    return false;
+  }
+
+  function sanitiseQuantity(){
+    const input=document.getElementById('qty');
+    const min=parseInt(input.min,10)||1;
+    const max=parseInt(input.max,10)||99;
+    let value=parseInt(input.value,10);
+    if(Number.isNaN(value)){value=min;}
+    value=Math.max(min,Math.min(max,value));
+    input.value=value;
+    return value;
+  }
+
+  function calcTotal(){
+    const liv=parseInt(document.querySelector('input[name="liv"]:checked').value,10)||0;
+    const qty=sanitiseQuantity();
+    const total=(4900*qty)+liv;
+    document.getElementById('totalPrice').textContent=total.toLocaleString('fr-DZ')+' DA';
+  }
+
+  document.getElementById('qty').addEventListener('input',calcTotal);
+  document.getElementById('qty').addEventListener('change',calcTotal);
+  document.querySelectorAll('.qty-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const step=parseInt(btn.dataset.step,10);
+      const input=document.getElementById('qty');
+      input.value=parseInt(input.value||1,10)+step;
+      calcTotal();
     });
-
-    qtyMinus.addEventListener("click", () => {
-      if (quantity > 1) {
-        quantity -= 1;
-        localStorage.setItem("cosmos-qty", quantity);
-        syncUI();
-      }
-    });
-
-    qtyPlus.addEventListener("click", () => {
-      quantity += 1;
-      localStorage.setItem("cosmos-qty", quantity);
-      syncUI();
-    });
-
-    function showToast(message) {
-      cartToast.textContent = message;
-      cartToast.classList.add("visible");
-      setTimeout(() => {
-        cartToast.classList.remove("visible");
-      }, 2200);
-    }
-
-    addToCartBtn.addEventListener("click", () => {
-      if (!selectedSize) {
-        showToast("Veuillez sélectionner une taille avant d'ajouter au panier.");
-        cartToast.style.background = "var(--danger)";
-        return;
-      }
-      const cartItem = {
-        product: "Cosmos 11-XI Beige",
-        price: 4900,
-        size: selectedSize,
-        color: selectedColor,
-        quantity,
-      };
-      localStorage.setItem("cosmos-cart", JSON.stringify(cartItem));
-      cartToast.style.background = "var(--accent)";
-      showToast("Produit ajouté au panier ✅");
-    });
-
-    viewCartBtn.addEventListener("click", () => {
-      const cart = JSON.parse(localStorage.getItem("cosmos-cart") || "{}");
-      if (!cart.product) {
-        showToast("Votre panier est vide pour le moment.");
-        cartToast.style.background = "var(--danger)";
-        return;
-      }
-      const summary = `
-        Produit: ${cart.product}
-        Taille: ${cart.size}
-        Couleur: ${cart.color}
-        Quantité: ${cart.quantity}
-        Montant total: ${cart.price * cart.quantity} DA
-      `;
-      alert(summary);
-    });
-
-    syncUI();
-
-    document.getElementById("contactForm").addEventListener("submit", (event) => {
-      event.preventDefault();
-      alert("Merci ! Votre message a bien été envoyé. Notre équipe vous répondra rapidement.");
-      event.target.reset();
-    });
-  </script>
+  });
+  document.querySelectorAll('input[name="liv"]').forEach(r=>r.addEventListener('change',calcTotal));
+  calcTotal();
+</script>
 </body>
-  </html>
+</html>
