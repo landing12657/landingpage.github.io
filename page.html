@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <title>Lampe Lumina Arc – Commander</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root{
@@ -20,30 +18,35 @@
       --accent: #38BDF8;
       --accent-dark: #0EA5E9;
       --radius: 18px;
-      --shadow: 0 30px 60px rgba(0,0,0,.35);
-      --shadow-soft: 0 20px 40px rgba(14,165,233,.2);
+      --shadow: 0 18px 42px rgba(0,0,0,.28);
+      --shadow-soft: 0 16px 32px rgba(14,165,233,.18);
     }
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
     body{
-      background: radial-gradient(circle at top,#16213E 0%,#0B1220 100%);
+      background:#0B1220;
       color:var(--white);
       line-height:1.65;
       padding-bottom:6rem;
     }
-    img{max-width:100%;display:block;}
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:radial-gradient(circle at top,#16213E 0%,rgba(11,18,32,.92) 55%);
+      z-index:-2;
+    }
+    img{max-width:100%;display:block;border-radius:var(--radius);}
     a{text-decoration:none;color:inherit;}
     h1,h2,h3,h4{font-weight:700;color:#F3F4F6;}
-    /* --- NAV --- */
     nav{
-      padding:1.8rem 0;
+      padding:1.6rem 0;
       text-align:center;
     }
     nav img.logo{
-      height:52px;
-      filter:brightness(1.3);
+      height:50px;
+      filter:brightness(1.25);
       margin:auto;
     }
-    /* --- PHOTOS DEFILEMENT --- */
     .slider-container{
       position:relative;
       width:100%;
@@ -52,157 +55,148 @@
       overflow:hidden;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      background:#000;
+      background:#050A15;
     }
     .slider{
       display:flex;
-      transition:transform .6s ease;
+      transition:transform .5s ease;
     }
     .slider img{
       width:100%;
       flex:0 0 100%;
-      height:440px;
+      height:380px;
       object-fit:cover;
     }
     .dots{
       position:absolute;
-      bottom:18px;
+      bottom:14px;
       left:50%;
       transform:translateX(-50%);
       display:flex;
-      gap:10px;
-      background:rgba(17,26,44,.75);
-      padding:.5rem 1rem;
+      gap:8px;
+      background:rgba(5,10,21,.75);
+      padding:.45rem .95rem;
       border-radius:999px;
-      backdrop-filter:blur(8px);
-      box-shadow:0 8px 18px rgba(0,0,0,.4);
+      backdrop-filter:blur(6px);
     }
     .dots span{
-      width:12px;
-      height:12px;
+      width:10px;
+      height:10px;
       border-radius:50%;
-      background:rgba(255,255,255,.25);
+      background:rgba(255,255,255,.22);
       cursor:pointer;
       transition:.3s;
     }
     .dots span.active{background:var(--primary);}
-    /* --- DETAILS --- */
     .details{
-      padding:2.4rem 2rem;
+      padding:2.2rem 1.8rem;
       max-width:720px;
-      margin:2.4rem auto;
-      background:var(--card);
+      margin:2.2rem auto;
+      background:rgba(17,26,44,.96);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      backdrop-filter:blur(12px);
-      position:relative;
-    }
-    .details::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      border-radius:var(--radius);
-      padding:1px;
-      background:linear-gradient(135deg,rgba(249,115,22,.45),rgba(14,165,233,.25));
-      -webkit-mask:
-        linear-gradient(#fff,#fff) content-box,
-        linear-gradient(#fff,#fff);
-      -webkit-mask-composite:xor;
-              mask-composite:exclude;
-      pointer-events:none;
+      border:1px solid rgba(249,115,22,.14);
     }
     .details h1{
-      font-size:2.1rem;
-      margin-bottom:.6rem;
-      letter-spacing:.02em;
+      font-size:2.05rem;
+      margin-bottom:.55rem;
+      letter-spacing:.01em;
     }
     .stars{
       display:flex;
       align-items:center;
-      gap:.6rem;
+      gap:.55rem;
       font-size:1rem;
       color:#FACC15;
-      margin-bottom:.9rem;
+      margin-bottom:.8rem;
     }
-    .stars span{
-      color:var(--muted);
-      font-size:.95rem;
-    }
+    .stars span{color:var(--muted);font-size:.94rem;}
     .price{
-      font-size:2rem;
+      font-size:1.9rem;
       font-weight:700;
       color:var(--primary);
-      margin:.6rem 0 1.2rem;
-      letter-spacing:.04em;
+      margin:.5rem 0 1.1rem;
+      letter-spacing:.03em;
     }
     .desc{
       color:#D1D5DB;
-      margin-bottom:1.7rem;
+      margin-bottom:1.5rem;
     }
     .label{
       font-weight:600;
-      margin:1.6rem 0 .8rem;
+      margin:1.5rem 0 .7rem;
       text-transform:uppercase;
-      font-size:.78rem;
-      letter-spacing:.18em;
+      font-size:.76rem;
+      letter-spacing:.16em;
       color:var(--muted);
     }
-    /* --- GUIDE LUMIERE --- */
     .size-guide-card{
-      background:linear-gradient(140deg,rgba(26,37,58,.95),rgba(14,165,233,.12));
+      background:linear-gradient(145deg,rgba(26,37,58,.92),rgba(14,165,233,.08));
       border-radius:var(--radius);
-      padding:1.3rem 1.5rem;
+      padding:1.2rem 1.3rem;
       border:1px solid rgba(56,189,248,.08);
       box-shadow:var(--shadow-soft);
+      overflow:hidden;
     }
     .size-guide-card h3{
-      font-size:1.28rem;
-      margin-bottom:.3rem;
+      font-size:1.24rem;
+      margin-bottom:.25rem;
       display:flex;
       align-items:center;
-      gap:.8rem;
+      gap:.75rem;
     }
     .size-guide-card h3::before{
       content:"💡";
-      font-size:1.4rem;
+      font-size:1.35rem;
     }
     .size-guide-card p{
-      font-size:.95rem;
+      font-size:.93rem;
       color:#CBD5F5;
-      margin-bottom:.9rem;
+      margin-bottom:.7rem;
+    }
+    .guide-table-wrapper{
+      width:100%;
+      overflow-x:auto;
+      margin-bottom:.6rem;
+      padding-bottom:.35rem;
     }
     .guide-table{
       width:100%;
+      min-width:520px;
       border-collapse:collapse;
-      font-size:.92rem;
-      margin-bottom:.7rem;
+      font-size:.9rem;
       color:#E2E8F0;
     }
     .guide-table th,
     .guide-table td{
-      padding:.6rem .7rem;
+      padding:.55rem .65rem;
       text-align:center;
-      border:1px solid rgba(56,189,248,.12);
-      background:rgba(11,18,32,.6);
+      border:1px solid rgba(56,189,248,.1);
+      background:rgba(11,18,32,.65);
     }
     .guide-table th{
-      background:rgba(56,189,248,.18);
+      background:rgba(56,189,248,.16);
       color:#F8FAFC;
     }
     .guide-table tbody tr:nth-child(even){
-      background:rgba(15,23,42,.55);
+      background:rgba(15,23,42,.5);
+    }
+    .guide-table-wrapper::-webkit-scrollbar{
+      height:6px;
+    }
+    .guide-table-wrapper::-webkit-scrollbar-thumb{
+      background:rgba(56,189,248,.45);
+      border-radius:999px;
     }
     .size-guide-card small{
       display:block;
       color:#94A3B8;
-      font-size:.85rem;
-      margin-top:.4rem;
+      font-size:.83rem;
     }
-    /* --- SELECTEUR TEMPERATURE --- */
     .size-picker{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
-      gap:.7rem;
+      gap:.6rem;
     }
     .size-picker input[type=radio]{display:none;}
     .size-picker label{
@@ -210,254 +204,245 @@
       flex-direction:column;
       align-items:center;
       justify-content:center;
-      padding:1rem .5rem;
-      border:1.5px solid rgba(148,163,184,.35);
-      border-radius:16px;
-      background:rgba(17,24,39,.85);
+      padding:.9rem .45rem;
+      border:1.4px solid rgba(148,163,184,.28);
+      border-radius:15px;
+      background:rgba(17,24,39,.82);
       font-weight:600;
       color:#E2E8F0;
       cursor:pointer;
-      transition:.25s;
-      box-shadow:0 18px 28px rgba(15,23,42,.25);
-      font-size:1rem;
+      transition:.2s;
+      box-shadow:0 12px 24px rgba(15,23,42,.28);
+      font-size:.98rem;
       text-align:center;
-      min-height:92px;
+      min-height:88px;
     }
     .size-picker label span{
-      font-size:.72rem;
+      font-size:.7rem;
       font-weight:500;
       color:#94A3B8;
-      margin-top:.3rem;
-      letter-spacing:.05em;
+      margin-top:.28rem;
+      letter-spacing:.04em;
     }
     .size-picker input[type=radio]:checked+label{
       border-color:var(--primary);
-      background:linear-gradient(150deg,rgba(249,115,22,.18),rgba(14,165,233,.12));
+      background:linear-gradient(150deg,rgba(249,115,22,.16),rgba(14,165,233,.1));
       color:#FED7AA;
-      box-shadow:0 24px 42px rgba(249,115,22,.25);
+      box-shadow:0 18px 32px rgba(249,115,22,.22);
     }
     .size-picker label:hover{
-      transform:translateY(-3px);
-      border-color:rgba(249,115,22,.6);
+      transform:translateY(-2px);
+      border-color:rgba(249,115,22,.48);
     }
-    /* --- QUANTITE --- */
     .qty-wrapper{
       display:flex;
       align-items:center;
-      gap:.5rem;
+      gap:.45rem;
       width:fit-content;
-      background:rgba(17,24,39,.9);
+      background:rgba(17,24,39,.85);
       border-radius:999px;
-      padding:.35rem;
-      box-shadow:0 24px 36px rgba(15,23,42,.45);
-      border:1px solid rgba(148,163,184,.18);
+      padding:.28rem;
+      box-shadow:0 16px 30px rgba(15,23,42,.32);
+      border:1px solid rgba(148,163,184,.16);
     }
     .qty-btn{
-      width:42px;
-      height:42px;
+      width:40px;
+      height:40px;
       border:none;
       background:var(--primary);
       color:#fff;
       border-radius:50%;
-      font-size:1.25rem;
+      font-size:1.18rem;
       cursor:pointer;
       display:flex;
       align-items:center;
       justify-content:center;
-      transition:.2s ease;
+      transition:.2s;
     }
     .qty-btn:hover{background:var(--primary-dark);}
     #qty{
-      width:70px;
+      width:68px;
       border:none;
       text-align:center;
       font-weight:600;
-      font-size:1.15rem;
+      font-size:1.05rem;
       background:transparent;
       color:#fff;
       outline:none;
     }
     #qty::-webkit-outer-spin-button,
-    #qty::-webkit-inner-spin-button{
-      -webkit-appearance:none;margin:0;
-    }
-    /* --- FORMULAIRE COMMANDE --- */
+    #qty::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
     .order-form{
-      background:linear-gradient(160deg,rgba(17,24,39,.95) 15%,rgba(2,16,36,.75) 100%);
-      padding:1.8rem 1.7rem;
+      background:linear-gradient(158deg,rgba(17,24,39,.94) 12%,rgba(2,16,36,.7) 100%);
+      padding:1.65rem 1.55rem;
       border-radius:var(--radius);
-      margin-top:2.2rem;
-      border:1px solid rgba(148,163,184,.12);
+      margin-top:2rem;
+      border:1px solid rgba(148,163,184,.1);
       box-shadow:var(--shadow);
     }
     .mini-card{
       display:flex;
       align-items:center;
-      gap:1.3rem;
-      margin-bottom:1.4rem;
-      padding-bottom:1.2rem;
-      border-bottom:1px dashed rgba(148,163,184,.25);
+      gap:1.2rem;
+      margin-bottom:1.2rem;
+      padding-bottom:1rem;
+      border-bottom:1px dashed rgba(148,163,184,.2);
     }
     .mini-card img{
-      width:82px;
-      height:82px;
+      width:76px;
+      height:76px;
       object-fit:cover;
-      border-radius:16px;
-      box-shadow:0 14px 28px rgba(14,165,233,.25);
+      border-radius:14px;
+      box-shadow:0 12px 24px rgba(14,165,233,.22);
     }
-    .mini-card .price{margin:0;}
+    .mini-card .price{margin:0;font-size:1.35rem;}
     .mini-card small{
       color:var(--muted);
-      font-size:.85rem;
+      font-size:.83rem;
+      margin-top:.26rem;
       display:block;
-      margin-top:.3rem;
     }
     .livraison-choices{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:1rem;
-      margin-bottom:1.4rem;
+      grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+      gap:.9rem;
+      margin-bottom:1.3rem;
     }
     .livraison-choices input[type=radio]{display:none;}
     .livraison-choices label{
-      background:rgba(17,24,39,.92);
-      border:1.5px solid rgba(148,163,184,.25);
+      background:rgba(17,24,39,.88);
+      border:1.4px solid rgba(148,163,184,.22);
       border-radius:var(--radius);
-      padding:1.2rem .8rem;
+      padding:1.05rem .75rem;
       text-align:center;
       cursor:pointer;
       font-weight:600;
-      transition:.25s;
-      box-shadow:0 15px 32px rgba(15,23,42,.3);
+      transition:.2s;
+      box-shadow:0 12px 28px rgba(15,23,42,.28);
       display:flex;
       flex-direction:column;
-      gap:.3rem;
+      gap:.28rem;
       color:#F1F5F9;
     }
     .livraison-choices label strong{color:var(--primary);}
     .livraison-choices input[type=radio]:checked+label{
-      background:linear-gradient(140deg,rgba(249,115,22,.18),rgba(56,189,248,.12));
+      background:linear-gradient(136deg,rgba(249,115,22,.16),rgba(56,189,248,.1));
       color:#fff;
       border-color:var(--primary);
-      box-shadow:0 24px 42px rgba(249,115,22,.3);
+      box-shadow:0 20px 36px rgba(249,115,22,.26);
     }
     .livraison-choices input[type=radio]:checked+label strong{color:#FED7AA;}
     input[type=text], select, textarea{
       width:100%;
-      padding:.95rem 1.1rem;
-      border:1.5px solid rgba(148,163,184,.2);
-      border-radius:14px;
-      margin-bottom:1rem;
-      font-size:1rem;
-      transition:.2s;
-      background:rgba(15,23,42,.78);
+      padding:.88rem 1.05rem;
+      border:1.4px solid rgba(148,163,184,.18);
+      border-radius:13px;
+      margin-bottom:.9rem;
+      font-size:.98rem;
+      transition:.15s;
+      background:rgba(15,23,42,.72);
       color:#fff;
-      box-shadow:0 18px 30px rgba(15,23,42,.28);
+      box-shadow:0 14px 26px rgba(15,23,42,.24);
     }
-    input::placeholder,
-    textarea::placeholder{color:rgba(148,163,184,.7);}
+    input::placeholder, textarea::placeholder{color:rgba(148,163,184,.68);}
     input[type=text]:focus,
     select:focus,
     textarea:focus{
       border-color:var(--accent);
       outline:none;
-      box-shadow:0 26px 44px rgba(56,189,248,.3);
+      box-shadow:0 18px 34px rgba(56,189,248,.26);
     }
-    textarea{resize:vertical;min-height:110px;}
+    textarea{resize:vertical;min-height:100px;}
     .btn{
       display:inline-block;
       color:var(--white);
-      padding:1.05rem;
+      padding:.95rem;
       border:none;
-      border-radius:16px;
+      border-radius:14px;
       font-weight:700;
       width:100%;
       cursor:pointer;
-      transition:.25s;
+      transition:.22s;
       text-transform:uppercase;
-      letter-spacing:.1em;
+      letter-spacing:.08em;
     }
     .btn-warning{
       background:var(--primary);
-      box-shadow:0 26px 46px rgba(249,115,22,.45);
+      box-shadow:0 20px 36px rgba(249,115,22,.4);
     }
     .btn-warning:hover{
       background:var(--primary-dark);
-      transform:translateY(-3px);
-      box-shadow:0 34px 58px rgba(249,115,22,.55);
+      transform:translateY(-2px);
+      box-shadow:0 26px 44px rgba(249,115,22,.46);
     }
-    /* --- INFOS SUPP --- */
     .infos{
-      margin:2.8rem auto;
+      margin:2.4rem auto;
       display:flex;
-      gap:1.2rem;
+      gap:1rem;
       justify-content:center;
       flex-wrap:wrap;
       max-width:720px;
     }
     .info-box{
-      background:rgba(17,24,39,.9);
-      border:1px solid rgba(56,189,248,.15);
+      background:rgba(17,24,39,.88);
+      border:1px solid rgba(56,189,248,.14);
       border-radius:var(--radius);
-      padding:1.2rem 1.6rem;
-      min-width:190px;
+      padding:1.05rem 1.35rem;
+      min-width:188px;
       text-align:center;
       cursor:pointer;
-      transition:.25s;
-      box-shadow:0 20px 36px rgba(15,23,42,.35);
+      transition:.2s;
+      box-shadow:0 16px 30px rgba(15,23,42,.32);
       font-weight:600;
       color:#E2E8F0;
     }
     .info-box:hover{
-      transform:translateY(-4px);
+      transform:translateY(-3px);
       border-color:var(--primary);
     }
     .info-box.active{
-      background:linear-gradient(150deg,rgba(249,115,22,.22),rgba(56,189,248,.18));
+      background:linear-gradient(148deg,rgba(249,115,22,.2),rgba(56,189,248,.14));
       color:#fff;
       border-color:var(--primary);
-      box-shadow:0 28px 48px rgba(249,115,22,.35);
+      box-shadow:0 22px 38px rgba(249,115,22,.3);
     }
-    /* --- BANDEAU DEFILANT --- */
     .bandeau{
-      background:linear-gradient(135deg,rgba(14,165,233,.35),rgba(249,115,22,.25));
+      background:linear-gradient(120deg,rgba(14,165,233,.32),rgba(249,115,22,.2));
       color:#fff;
       overflow:hidden;
       white-space:nowrap;
-      margin:2.4rem 0;
-      padding:.85rem 0;
+      margin:2rem 0;
+      padding:.75rem 0;
       font-weight:600;
-      letter-spacing:.12em;
+      letter-spacing:.1em;
       text-transform:uppercase;
-      box-shadow:0 22px 45px rgba(14,165,233,.35);
+      box-shadow:0 18px 36px rgba(14,165,233,.32);
     }
     .bandeau span{
       display:inline-block;
       padding-left:100%;
-      animation:defile 14s linear infinite;
+      animation:defile 18s linear infinite;
     }
     @keyframes defile{
       0%{transform:translateX(0);}
       100%{transform:translateX(-100%);}
     }
-    /* --- 3 CARACTERISTIQUES --- */
     .caracteristiques{
       display:flex;
-      gap:1.4rem;
+      gap:1.2rem;
       flex-wrap:wrap;
       justify-content:center;
-      margin:2.4rem auto 3.2rem;
+      margin:2.2rem auto 3rem;
       max-width:960px;
-      padding:0 1.2rem;
+      padding:0 1rem;
     }
     .carac{
-      flex:1 1 280px;
-      text-align:left;
-      background:rgba(17,24,39,.92);
+      flex:1 1 270px;
+      background:rgba(17,24,39,.9);
       border-radius:var(--radius);
-      padding:1.6rem 1.4rem;
-      box-shadow:0 24px 44px rgba(15,23,42,.4);
-      border:1px solid rgba(148,163,184,.18);
+      padding:1.4rem 1.2rem;
+      box-shadow:0 18px 34px rgba(15,23,42,.32);
+      border:1px solid rgba(148,163,184,.16);
       position:relative;
       overflow:hidden;
     }
@@ -465,47 +450,46 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(160deg,rgba(56,189,248,.18),transparent 65%);
-      opacity:.6;
+      background:linear-gradient(155deg,rgba(56,189,248,.16),transparent 65%);
+      opacity:.55;
       pointer-events:none;
     }
     .carac img{
-      height:150px;
+      height:140px;
       margin:auto;
-      border-radius:14px;
+      border-radius:12px;
       object-fit:cover;
-      margin-bottom:1.2rem;
-      box-shadow:0 20px 40px rgba(14,165,233,.25);
+      margin-bottom:1rem;
+      box-shadow:0 16px 30px rgba(14,165,233,.22);
     }
-    .carac h4{font-size:1.15rem;}
-    .carac p{margin-top:.5rem;color:#CBD5F5;font-size:.95rem;}
-    /* --- AVIS CLIENTS --- */
+    .carac h4{font-size:1.12rem;}
+    .carac p{margin-top:.45rem;color:#CBD5F5;font-size:.92rem;}
     .avis-section{
       max-width:960px;
-      margin:3.2rem auto;
-      padding:0 1.2rem;
+      margin:3rem auto;
+      padding:0 1rem;
     }
     .avis-section-header{
       text-align:center;
-      margin-bottom:1.8rem;
+      margin-bottom:1.6rem;
     }
     .avis-section-header h2{
-      font-size:2.05rem;
-      margin-bottom:.4rem;
+      font-size:1.95rem;
+      margin-bottom:.35rem;
     }
     .avis-section-header h2 span{
       display:inline-block;
-      padding:.2rem .9rem;
+      padding:.18rem .85rem;
       border-radius:999px;
-      background:rgba(56,189,248,.18);
+      background:rgba(56,189,248,.16);
       color:var(--accent);
-      font-size:.95rem;
-      margin-bottom:.7rem;
-      letter-spacing:.08em;
+      font-size:.92rem;
+      margin-bottom:.6rem;
+      letter-spacing:.07em;
     }
     .avis-section-header p{
       color:#94A3B8;
-      font-size:.98rem;
+      font-size:.95rem;
     }
     .avis-wrapper{
       position:relative;
@@ -514,153 +498,150 @@
       overflow:hidden;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      background:linear-gradient(140deg,rgba(17,24,39,.95),rgba(14,165,233,.15));
+      background:linear-gradient(135deg,rgba(17,24,39,.92),rgba(14,165,233,.12));
     }
     .avis-container{
       display:flex;
-      transition:transform .45s ease;
+      transition:transform .4s ease;
     }
     .avis{
-      padding:2.2rem 2rem;
+      padding:2rem 1.8rem;
       min-width:100%;
       display:flex;
       flex-direction:column;
-      gap:1.1rem;
+      gap:1rem;
     }
     .avis .quote{
-      font-size:1.08rem;
+      font-size:1.05rem;
       color:#E2E8F0;
-      line-height:1.8;
+      line-height:1.75;
       font-style:italic;
     }
     .avis small{
       font-weight:600;
       color:#BAE6FD;
-      letter-spacing:.1em;
+      letter-spacing:.09em;
       text-transform:uppercase;
     }
     .arrow{
       position:absolute;
       top:50%;
       transform:translateY(-50%);
-      background:rgba(11,18,32,.85);
+      background:rgba(11,18,32,.82);
       color:#F8FAFC;
       border:none;
-      padding:.6rem .8rem;
+      padding:.55rem .75rem;
       border-radius:50%;
       cursor:pointer;
-      box-shadow:0 18px 32px rgba(0,0,0,.45);
+      box-shadow:0 14px 26px rgba(0,0,0,.4);
       transition:.2s;
     }
     .arrow:hover{
       background:var(--accent);
       color:#0B1220;
     }
-    .arrow.left{left:18px;}
-    .arrow.right{right:18px;}
-    /* --- NOUS CONTACTER --- */
+    .arrow.left{left:16px;}
+    .arrow.right{right:16px;}
     .contact{
-      padding:3.2rem 1.4rem;
+      padding:2.8rem 1.3rem;
       text-align:center;
-      background:rgba(17,24,39,.95);
-      margin-top:3.6rem;
+      background:rgba(17,24,39,.92);
+      margin-top:3.2rem;
       box-shadow:var(--shadow);
       border-radius:var(--radius);
       max-width:720px;
       margin-left:auto;
       margin-right:auto;
-      border:1px solid rgba(56,189,248,.18);
+      border:1px solid rgba(56,189,248,.16);
     }
     .contact a{
       background:var(--accent);
       color:#0B1220;
-      padding:1rem 1.8rem;
+      padding:.95rem 1.7rem;
       border-radius:999px;
       font-weight:600;
       display:inline-flex;
       align-items:center;
-      gap:.6rem;
-      transition:.25s;
+      gap:.55rem;
+      transition:.2s;
     }
     .contact a:hover{
       background:var(--accent-dark);
-      transform:translateY(-3px);
-      box-shadow:0 24px 42px rgba(14,165,233,.4);
+      transform:translateY(-2px);
+      box-shadow:0 20px 36px rgba(14,165,233,.34);
     }
-    /* --- FOOTER --- */
     footer{
       background:#050A15;
       color:#A5B4FC;
       text-align:center;
-      padding:2.4rem 1.2rem;
-      font-size:.88rem;
-      margin-top:3.4rem;
-      border-top:1px solid rgba(56,189,248,.12);
+      padding:2.2rem 1.1rem;
+      font-size:.86rem;
+      margin-top:3.1rem;
+      border-top:1px solid rgba(56,189,248,.1);
     }
     footer a{color:#E0F2FE;opacity:.9;}
     footer a:hover{opacity:1;}
-    /* --- BOUTON FIXE --- */
     .fixed-btn{
       position:fixed;
-      bottom:92px;
+      bottom:88px;
       left:50%;
       transform:translateX(-50%);
       background:var(--primary);
       color:#0B1220;
-      padding:1.05rem 2.3rem;
-      border-radius:38px;
+      padding:.95rem 2.1rem;
+      border-radius:34px;
       font-weight:700;
-      letter-spacing:.12em;
+      letter-spacing:.1em;
       text-transform:uppercase;
-      box-shadow:0 30px 55px rgba(249,115,22,.5);
-      transition:.25s;
+      box-shadow:0 24px 46px rgba(249,115,22,.44);
+      transition:.2s;
       z-index:20;
     }
     .fixed-btn:hover{
       background:var(--primary-dark);
-      transform:translate(-50%,-3px);
-      box-shadow:0 38px 68px rgba(249,115,22,.55);
+      transform:translate(-50%,-2px);
+      box-shadow:0 30px 54px rgba(249,115,22,.5);
     }
-    /* --- REMONTER --- */
     .go-top{
       position:fixed;
-      bottom:26px;
-      right:26px;
+      bottom:22px;
+      right:22px;
       background:var(--accent);
       color:#0B1220;
-      width:52px;
-      height:52px;
+      width:48px;
+      height:48px;
       border-radius:50%;
       display:flex;
       align-items:center;
       justify-content:center;
       cursor:pointer;
-      box-shadow:0 26px 48px rgba(14,165,233,.5);
-      transition:.25s;
+      box-shadow:0 22px 40px rgba(14,165,233,.44);
+      transition:.2s;
     }
-    .go-top:hover{transform:translateY(-3px);}
-    /* --- RESPONSIVE --- */
+    .go-top:hover{transform:translateY(-2px);}
     @media(max-width:640px){
-      .slider img{height:320px;}
-      .details{margin:1.8rem 1rem;padding:1.8rem 1.4rem;}
+      .slider img{height:300px;}
+      .details{margin:1.6rem 1rem;padding:1.7rem 1.3rem;}
       .mini-card{flex-direction:column;text-align:center;}
       .livraison-choices{grid-template-columns:1fr;}
-      .fixed-btn{width:calc(100% - 2.6rem);}
+      .fixed-btn{width:calc(100% - 2.4rem);}
       .size-picker{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));}
+      .guide-table{min-width:480px;}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}
     }
   </style>
 </head>
 <body>
 
-<!-- ===== NAV LOGO CENTRE ===== -->
-<nav><img src="img/logo-lumna.png" alt="Lumina Arc Logo" class="logo"></nav>
+<nav><img src="img/logo-lumna.png" alt="Lumina Arc Logo" class="logo" loading="lazy"></nav>
 
-<!-- ===== SLIDER PHOTOS ===== -->
 <div class="slider-container">
   <div class="slider" id="slider">
-    <img src="img/lamp-1.jpg" alt="Lumina Arc">
-    <img src="img/lamp-2.jpg" alt="Lumina Arc ambiance">
-    <img src="img/lamp-3.jpg" alt="Lumina Arc design">
+    <img src="img/lamp-1.jpg" alt="Lumina Arc" loading="eager">
+    <img src="img/lamp-2.jpg" alt="Lumina Arc ambiance" loading="lazy">
+    <img src="img/lamp-3.jpg" alt="Lumina Arc design" loading="lazy">
   </div>
   <div class="dots">
     <span class="active" onclick="goSlide(0)"></span>
@@ -669,7 +650,6 @@
   </div>
 </div>
 
-<!-- ===== DETAILS PRODUIT ===== -->
 <div class="details">
   <h1>Lumina Arc • Lampe connectée design</h1>
   <div class="stars">
@@ -678,26 +658,28 @@
     </div>
     <span>312 utilisateurs conquis</span>
   </div>
-  <div class="price">8 700 DA</div>
+  <div class="price">8 700 DA</div>
   <p class="desc">Un arc lumineux sculptural, pilotable via application et compatible Alexa/Google. Ajuste l’intensité, la température de couleur et crée des scénarios lumineux pour chaque ambiance.</p>
 
   <div class="size-guide-card">
     <h3>Guide luminosité & température</h3>
     <p>Choisis la température de couleur et la luminosité adaptées à l’usage de ta pièce. Lumina Arc mémorise tes préférences.</p>
-    <table class="guide-table">
-      <thead>
-        <tr><th>Ambiance</th><th>Température (K)</th><th>Intensité (lumens)</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Relax</td><td>2 700 K</td><td>400 lm</td></tr>
-        <tr><td>Soirée</td><td>3 000 K</td><td>550 lm</td></tr>
-        <tr><td>Lecture</td><td>3 500 K</td><td>700 lm</td></tr>
-        <tr><td>Focus</td><td>4 000 K</td><td>850 lm</td></tr>
-        <tr><td>Studio</td><td>4 500 K</td><td>1 000 lm</td></tr>
-        <tr><td>Boost</td><td>5 000 K</td><td>1 200 lm</td></tr>
-      </tbody>
-    </table>
-    <small>Astuce : combine deux scènes différentes pour créer une lumière multidimensionnelle.</small>
+    <div class="guide-table-wrapper">
+      <table class="guide-table">
+        <thead>
+          <tr><th>Ambiance</th><th>Température (K)</th><th>Intensité (lumens)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Relax</td><td>2 700 K</td><td>400 lm</td></tr>
+          <tr><td>Soirée</td><td>3 000 K</td><td>550 lm</td></tr>
+          <tr><td>Lecture</td><td>3 500 K</td><td>700 lm</td></tr>
+          <tr><td>Focus</td><td>4 000 K</td><td>850 lm</td></tr>
+          <tr><td>Studio</td><td>4 500 K</td><td>1 000 lm</td></tr>
+          <tr><td>Boost</td><td>5 000 K</td><td>1 200 lm</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <small>Astuce : combine deux scènes différentes pour créer une lumière multidimensionnelle.</small>
   </div>
 
   <div class="label">Scène lumineuse préférée</div>
@@ -723,10 +705,9 @@
     <button type="button" class="qty-btn" data-step="1" aria-label="Augmenter la quantité">+</button>
   </div>
 
-  <!-- --- FORMULAIRE COMMANDE --- -->
   <form class="order-form" onsubmit="return confirmOrder();">
     <div class="mini-card">
-      <img src="img/lamp-1.jpg" alt="Lumina Arc">
+      <img src="img/lamp-1.jpg" alt="Lumina Arc" loading="lazy">
       <div>
         <div style="font-weight:600;">Lumina Arc · Noir Graphite</div>
         <div class="price" id="totalPrice">9 100 DA</div>
@@ -813,38 +794,34 @@
   </form>
 </div>
 
-<!-- --- INFOS SUPP --- -->
 <div class="infos">
   <div class="info-box" data-label="Livraison express" onclick="toggleInfo(this,'48 h partout en Algérie, emballage anti-choc premium.')">Livraison express</div>
   <div class="info-box" data-label="Assistance connectée" onclick="toggleInfo(this,'Support installation et configuration via visioguide personnalisé.')">Assistance connectée</div>
   <div class="info-box" data-label="Garantie 2 ans" onclick="toggleInfo(this,'Garantie complète 24 mois, remplacement express en cas de souci.')">Garantie 2 ans</div>
 </div>
 
-<!-- --- BANDEAU DEFILANT --- -->
 <div class="bandeau">
   <span>Contrôle vocal • LED basse conso • Design récompensé • 16 millions de couleurs</span>
 </div>
 
-<!-- --- 3 CARACTERISTIQUES --- -->
 <div class="caracteristiques">
   <div class="carac">
-    <img src="img/feature-lamp-1.jpg" alt="Contrôle intelligent">
+    <img src="img/feature-lamp-1.jpg" alt="Contrôle intelligent" loading="lazy">
     <h4>Contrôle intelligent</h4>
     <p>Pilote Lumina Arc depuis ton smartphone, ou à la voix avec Alexa/Google. Programme des scénarios pour chaque moment.</p>
   </div>
   <div class="carac">
-    <img src="img/feature-lamp-2.jpg" alt="Éclairage sculpté">
+    <img src="img/feature-lamp-2.jpg" alt="Éclairage sculpté" loading="lazy">
     <h4>Éclairage sculpté</h4>
     <p>Diffuseur microgravé pour une lumière homogène à 270° sans éblouissement. Parfait pour salons, bureaux créatifs, hôtels.</p>
   </div>
   <div class="carac">
-    <img src="img/feature-lamp-3.jpg" alt="Éco-efficience">
+    <img src="img/feature-lamp-3.jpg" alt="Éco-efficience" loading="lazy">
     <h4>Éco-efficience</h4>
-    <p>Consommation 14 W max, capteur de présence et minuterie intelligente. LED garanties 50 000 heures.</p>
+    <p>Consommation 14 W max, capteur de présence et minuterie intelligente. LED garanties 50 000 heures.</p>
   </div>
 </div>
 
-<!-- --- AVIS CLIENTS --- -->
 <section class="avis-section" aria-labelledby="avisTitle">
   <div class="avis-section-header">
     <h2 id="avisTitle"><span>Feedback pro</span>Ce que les clients pensent de Lumina Arc</h2>
@@ -873,35 +850,31 @@
   </div>
 </section>
 
-<!-- --- NOUS CONTACTER --- -->
 <div class="contact">
-  <h3>Besoin d’un devis pro ou d’un pack showroom ?</h3><br>
+  <h3>Besoin d’un devis pro ou d’un pack showroom ?</h3><br>
   <a href="https://wa.me/213550000000" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Obtenir un conseiller</a>
 </div>
 
-<!-- --- FOOTER --- -->
 <footer>
   © 2025 Lumina Arc – Tous droits réservés<br>
   <a href="tel:+213550000000">+213 55 000 00 00</a> | <a href="mailto:hello@lumina-arc.dz">hello@lumina-arc.dz</a>
 </footer>
 
-<!-- --- BOUTON COMMANDE FIXE --- -->
 <a href="#" class="fixed-btn" onclick="document.querySelector('.order-form').scrollIntoView({behavior:'smooth'});return false;">Commander lumina arc</a>
 
-<!-- --- REMONTER --- -->
 <div class="go-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-chevron-up"></i></div>
 
 <script>
   let currentSlide=0,currentAvis=0;
   const totalSlides=document.querySelectorAll('.slider img').length;
   const totalAvis=document.querySelectorAll('.avis').length;
-
+  const slider=document.getElementById('slider');
+  const dotList=document.querySelectorAll('.dots span');
   function goSlide(n){
-    currentSlide=n;
-    document.getElementById('slider').style.transform=`translateX(-${n*100}%)`;
-    document.querySelectorAll('.dots span').forEach((d,i)=>d.classList.toggle('active',i===n));
+    currentSlide=(n+totalSlides)%totalSlides;
+    slider.style.transform=`translateX(-${currentSlide*100}%)`;
+    dotList.forEach((d,i)=>d.classList.toggle('active',i===currentSlide));
   }
-
   function toggleInfo(el,txt){
     document.querySelectorAll('.info-box').forEach(box=>{
       box.classList.remove('active');
@@ -912,19 +885,16 @@
     setTimeout(()=>{
       el.classList.remove('active');
       el.textContent=el.dataset.label;
-    },2800);
+    },2400);
   }
-
   function moveAvis(dir){
     currentAvis=(currentAvis+dir+totalAvis)%totalAvis;
     document.getElementById('avisContainer').style.transform=`translateX(-${currentAvis*100}%)`;
   }
-
   function confirmOrder(){
     alert('Commande enregistrée (démonstration).');
     return false;
   }
-
   function sanitiseQuantity(){
     const input=document.getElementById('qty');
     const min=parseInt(input.min,10)||1;
@@ -935,14 +905,12 @@
     input.value=value;
     return value;
   }
-
   function calcTotal(){
     const liv=parseInt(document.querySelector('input[name="liv"]:checked').value,10)||0;
     const qty=sanitiseQuantity();
     const total=(8700*qty)+liv;
     document.getElementById('totalPrice').textContent=total.toLocaleString('fr-DZ')+' DA';
   }
-
   document.getElementById('qty').addEventListener('input',calcTotal);
   document.getElementById('qty').addEventListener('change',calcTotal);
   document.querySelectorAll('.qty-btn').forEach(btn=>{
@@ -957,4 +925,4 @@
   calcTotal();
 </script>
 </body>
-  </html>
+      </html>
